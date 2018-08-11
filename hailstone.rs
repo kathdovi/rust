@@ -12,10 +12,15 @@ fn main() {
         .read_line(&mut num)
         .expect("Failed to read line");
 
-    let mut num = num.trim().parse::<u32>().expect("NaN");
+    let num = num.trim().parse::<u32>().expect("NaN");
 
+    hailstone(num);
+}
+
+fn hailstone(mut num: u32) {
     let mut num_steps = 0;
-
+    
+    print!("{} ", num);
     while num > 1 {
         if num%2 == 0 {
             let new_num = num/2;
